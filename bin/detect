@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# Heroku Buildpack for VueJS Webpack projects
-
 for folder in "build" "config" "src"; do
   if [ ! -d $folder ]; then
     exit 1
