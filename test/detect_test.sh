@@ -8,13 +8,7 @@ testDetect()
   mkdir ${BUILD_DIR}/build
   mkdir ${BUILD_DIR}/config
 
-  PACKAGE_JSON_CONTENT=`cat <<EOF
-    {
-      "dependencies": {
-        "vue": "^2.5.2"
-      }
-    }
-    EOF`
+  PACKAGE_JSON_CONTENT=`echo "\"vue\": \"^2.5.2\""`
 
   echo ${PACKAGE_JSON_CONTENT} > ${BUILD_DIR}/package.json
   touch ${BUILD_DIR}/index.html
