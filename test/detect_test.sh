@@ -13,8 +13,9 @@ testDetect()
       "dependencies": {
         "vue": "^2.5.2"
       }
-    })
-  EOF
+    }
+    EOF
+  )
 
   echo ${PACKAGE_JSON_CONTENT} > ${BUILD_DIR}/package.json
   touch index.html
