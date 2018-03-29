@@ -4,10 +4,7 @@
 
 testDetect()
 {
-  mkdir -p ${BUILD_DIR}
-  mkdir -p ${BUILD_DIR}/src
-  mkdir -p ${BUILD_DIR}/build
-  mkdir -p ${BUILD_DIR}/config
+  echo ${BUILD_DIR}
 
   #touch ${BUILD_DIR}/package.json
   #touch ${BUILD_DIR}/index.html
