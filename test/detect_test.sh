@@ -8,7 +8,7 @@ testDetect()
   mkdir -p ${BUILD_DIR}/build
   mkdir -p ${BUILD_DIR}/config
 
-  PACKAGE_JSON_CONTENT=`echo "\"vue\": \"0.0.0\""
+  PACKAGE_JSON_CONTENT=`echo "\"vue\": \"0.0.0\""`
 
   echo ${PACKAGE_JSON_CONTENT} > ${BUILD_DIR}/package.json
   touch ${BUILD_DIR}/index.html
