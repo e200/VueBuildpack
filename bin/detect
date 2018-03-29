@@ -2,23 +2,23 @@
 
 BUILD_DIR=$1
 
-for F in build config src; do
-  if [ ! -d ${BUILD_DIR/$F} ]; then
-    exit 1
-  fi
-done
+#for F in build config src; do
+#  if [ ! -d ${BUILD_DIR/$F} ]; then
+#    exit 1
+#  fi
+#done
 
-for F in "package.json" "index.html"; do
-  if [ ! -f ${BUILD_DIR/$F} ]; then
-    exit 1
-  fi
-done
+#for F in "package.json" "index.html"; do
+#  if [ ! -f ${BUILD_DIR/$F} ]; then
+#    exit 1
+#  fi
+#done
 
 #cat package.json | grep -Pwoqe "\"vue\"\:\s?\".*\"\,?"
 
-if [ $? != 0 ]; then
-  exit $?
-fi
+#if [ $? != 0 ]; then
+#  exit $?
+#fi
 
 echo "Detected VueJS project"
 exit 0

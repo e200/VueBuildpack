@@ -1,16 +1,15 @@
 #!/usr/bin/env bash
 
 . ${BUILDPACK_TEST_RUNNER_HOME}/lib/test_utils.sh
-. ${BUILDPACK_HOME}/test/stdlib_stubs.sh
 
 testDetect()
 {
-  mkdir ${BUILD_DIR}/src
-  mkdir ${BUILD_DIR}/build
-  mkdir ${BUILD_DIR}/config
+  #mkdir ${BUILD_DIR}/src
+  #mkdir ${BUILD_DIR}/build
+  #mkdir ${BUILD_DIR}/config
 
-  touch ${BUILD_DIR}/package.json
-  touch ${BUILD_DIR}/index.html
+  #touch ${BUILD_DIR}/package.json
+  #touch ${BUILD_DIR}/index.html
 
   detect
 
