@@ -12,7 +12,7 @@ for F in package.json index.html; do
   fi
 done
 
-cat package.json | grep -Pwoqe "\"vue\"\:\s?\".*\"\,?"
+cat $1/package.json | grep -Pwoqe "\"vue\"\:\s?\".*\"\,?"
 
 if [ $? != 0 ]; then
   exit $?
