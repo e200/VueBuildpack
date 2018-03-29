@@ -6,11 +6,11 @@ for F in build config src; do
   fi
 done
 
-#for F in "package.json" "index.html"; do
-#  if [ ! -f ${BUILD_DIR/$F} ]; then
-#    exit 1
-#  fi
-#done
+for F in package.json index.html; do
+  if [ ! -f $1/$F ]; then
+    exit 1
+  fi
+done
 
 #cat package.json | grep -Pwoqe "\"vue\"\:\s?\".*\"\,?"
 
