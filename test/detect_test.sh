@@ -6,7 +6,8 @@ testDetect()
 {
   echo ${BUILD_DIR}
   mkdir -p ${BUILD_DIR}/src
-  ls -l
+  mkdir -p ${BUILD_DIR}/build
+  mkdir -p ${BUILD_DIR}/config
 
   #touch ${BUILD_DIR}/package.json
   #touch ${BUILD_DIR}/index.html
