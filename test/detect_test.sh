@@ -2,24 +2,24 @@
 
 . ${BUILDPACK_TEST_RUNNER_HOME}/lib/test_utils.sh
 
-testDetectSrcFolder()
+testDetect()
 {
   mkdir ${BUILD_DIR}/src
   mkdir ${BUILD_DIR}/build
   mkdir ${BUILD_DIR}/config
 
-  PACKAGE_JSON_CONTENT=`cat <<EOF
-  {
-    "dependencies": {
-      "vue": "^2.5.2"
-    }
-  }
-  EOF`
+  PACKAGE_JSON_CONTENT=$(<<EOF
+    {
+      "dependencies": {
+        "vue": "^2.5.2"
+      }
+    })
+  EOF
 
-  echo ${PACKAGE_JSON_CONTENT} > pakage.json
+  echo ${PACKAGE_JSON_CONTENT} > ${BUILD_DIR}/package.json
   touch index.html
 
   detect
 
-  assertAppDetected VueJS
+  assertAppDetected Detected VueJS project
 }
