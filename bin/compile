@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-exit 2
+npm install
+
+exit 0
