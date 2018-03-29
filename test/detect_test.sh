@@ -17,7 +17,7 @@ testDetect()
     EOF`
 
   echo ${PACKAGE_JSON_CONTENT} > ${BUILD_DIR}/package.json
-  touch {BUILD_DIR}/index.html
+  touch ${BUILD_DIR}/index.html
 
   detect
 
