@@ -1,1 +1,1 @@
-# Heroku Buildpack for VueJS Webpack projects
+# Heroku buildpack for VueJS webpack projects
