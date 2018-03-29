@@ -17,9 +17,9 @@ testDetect()
     EOF`
 
   echo ${PACKAGE_JSON_CONTENT} > ${BUILD_DIR}/package.json
-  touch index.html
+  touch {BUILD_DIR}/index.html
 
   detect
 
-  assertAppDetected Detected VueJS project
+  assertAppDetected "Detected VueJS project"
 }
