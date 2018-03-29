@@ -1,13 +1,15 @@
 #!/bin/sh
 
-for folder in "build" "config" "src"; do
-  if [ ! -d "$1/$folder" ]; then
+BUILD_DIR=$1
+
+for F in build config src; do
+  if [ ! -d ${BUILD_DIR/$F} ]; then
     exit 1
   fi
 done
 
-for file in "package.json" "index.html"; do
-  if [ ! -f "$1/$file" ]; then
+for F in "package.json" "index.html"; do
+  if [ ! -f ${BUILD_DIR/$F} ]; then
     exit 1
   fi
 done
