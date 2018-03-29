@@ -1,1 +1,3 @@
-#!/bin/sh
+#!/bin/bash
+
+echo "Released"
