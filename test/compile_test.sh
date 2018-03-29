@@ -4,5 +4,7 @@
 
 testCompile()
 {
-  
+  compile
+  assertCapturedSuccess
+  assertCaptured "node"
 }
