@@ -2,11 +2,11 @@
 
 BUILD_DIR=$1
 
-#for F in build config src; do
-#  if [ ! -d ${BUILD_DIR/$F} ]; then
-#    exit 1
-#  fi
-#done
+for F in build config src; do
+  if [ ! -d ${BUILD_DIR/$F} ]; then
+    exit 1
+  fi
+done
 
 #for F in "package.json" "index.html"; do
 #  if [ ! -f ${BUILD_DIR/$F} ]; then
