@@ -1,13 +1,13 @@
-#!/bin/bash
+#!/bin/sh
 
 for folder in "build" "config" "src"; do
-  if [ ! -d $folder ]; then
+  if [ ! -d "$1/$folder" ]; then
     exit 1
   fi
 done
 
 for file in "package.json" "index.html"; do
-  if [ ! -f $file ]; then
+  if [ ! -f "$1/$file" ]; then
     exit 1
   fi
 done
