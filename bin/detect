@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 for folder in "build" "config" "src"; do
   if [ ! -d $folder ]; then
@@ -18,5 +18,5 @@ if [ $? != 0 ]; then
   exit $?
 fi
 
-echo "VueJS project"
+echo "Detected VueJS project"
 exit 0
