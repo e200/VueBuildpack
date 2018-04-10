@@ -3,12 +3,15 @@
 BUILD_DIR=$1
 CACHE_DIR=$2
 
-NODE_SETUP=$CACHE_DIR/nodesource_setup.sh
+NODE_DIST=node-v8.9.0-linux-x64
+NODE_FILE=NODE_DIST:.tar.xz
 
-curl -sL https://deb.nodesource.com/setup_8.x -o $NODE_SETUP
-chmod a+x $NODE_SETUP
-$NODE_SETUP
-apt-get install nodejs
-node -v
+curl -sL https://nodejs.org/dist/v8.9.0/$NODE_FILE -o $CACHE_DIR
+
+mkdir $BUILD_DIR/bin
+tar xf $CACHE_DIR/$NODE_FILE
+mv $NODE_DIST $BUILD_DIR/bin
+
+$BUILD_DIR/bin/$NODE_DIST/node -v
 
 exit 0
