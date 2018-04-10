@@ -5,7 +5,7 @@
 testCompile()
 {
   compile
-  #assertCapturedSuccess
+  assertCapturedSuccess
   assertCaptured "Downloading node"
   assertCaptured "Download complete, extracting downloaded content..."
   assertCaptured "Installing node"
