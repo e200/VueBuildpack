@@ -17,7 +17,7 @@ curl -sL $NODE_URL -o $NODE_TAR_PATH
 
 if [ -f $NODE_TAR_PATH ]; then
   echo "Download complete, extracting downloaded content..."
-  tar xf $NODE_TAR_PATH
+  tar -xf $NODE_TAR_PATH
 
   echo "Installing node $NODE_VERSION"
   mkdir -p $BUILD_DIR/bin
