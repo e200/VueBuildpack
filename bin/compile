@@ -20,22 +20,23 @@ node_dist=node-$node_version-$node_platform
 node_tar=$node_dist.tar.gz
 
 #ex: /tmp/heroku_cache_dir/node-linux-x64.tar.gz
-node_tar_PATH=$cache_dir/$node_tar
+node_tar_path=$cache_dir/$node_tar
 
 node_url=https://s3.amazonaws.com/heroku-nodejs-bins/node/release/$node_platform/$node_tar
 
 [ ! -d $cache_dir ] && mkdir -p $cache_dir
 
-if [ -f $node_tar_PATH ]; then
-  echo "Using cached $node_tar"
+if [ -f $node_tar_path ]; then
+  echo "Using previous cached $node_tar"
 else
   echo "Downloading node $node_version..."
-  curl -sL $node_url -o $node_tar_PATH
+  curl -sL $node_url -o $node_tar_path
 fi
 
-if [ -f $node_tar_PATH ]; then
+if [ -f $node_tar_path ]; then
   echo "Installing node $node_version"
-  tar zxf $node_tar_PATH
+
+  tar zxf $node_tar_path
   mkdir -p $build_bin
   mv $node_dist $build_bin
   chmod -R +x $build_bin/$node_dist/*
@@ -43,6 +44,10 @@ if [ -f $node_tar_PATH ]; then
   $build_bin/$node_dist/bin/node -v
 
   exit 0
+else
+  echo "Cannot find $NODE_TAR. Aborting..."
+  exit 2
 fi
 
-exit 3003
+echo "Unknow error! Aborting..."
+exit 1
