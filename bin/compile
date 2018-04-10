@@ -57,7 +57,19 @@ if [ -f $node_tar_path ]; then
   cd -
 
   echo "Creating the server..."
-  cp ../server/server.js server.js
+  cat << EOF
+  var express = require('express');
+  var path = require('path');
+  var serveStatic = require('serve-static');
+
+  app = express();
+  app.use(serveStatic(__dirname + '/dist'));
+
+  var port = process.env.PORT || 8080;
+  app.listen(port);
+
+  console.log('server started '+ port);
+  EOF > $build_dir/server.js
 
   exit 0
 else
