@@ -18,10 +18,9 @@ curl -sL $NODE_URL -o $NODE_TAR_PATH
 
 if [ -f $NODE_TAR_PATH ]; then
   echo "Installing xz-utils..."
-  apt-get install xz-utils
 
   echo "Download complete, extracting downloaded content..."
-  tar xf $NODE_TAR_PATH
+  tar zxf $NODE_TAR_PATH
 
   echo "Installing node $NODE_VERSION"
   mkdir -p $NODE_BIN
