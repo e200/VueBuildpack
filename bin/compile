@@ -57,7 +57,8 @@ if [ -f $node_tar_path ]; then
   cd -
 
   echo "Creating the server..."
-  cat << EOF
+
+  cat > $build_dir/server.js <<EOL
   var express = require('express');
   var path = require('path');
   var serveStatic = require('serve-static');
@@ -69,7 +70,7 @@ if [ -f $node_tar_path ]; then
   app.listen(port);
 
   console.log('server started '+ port);
-  EOF > $build_dir/server.js
+  EOL
 
   exit 0
 else
