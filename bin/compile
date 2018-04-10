@@ -56,8 +56,20 @@ if [ -f $node_tar_path ]; then
   #$node_bin/npm install
 
   echo "Creating the server..."
-  ls -l ../
-  ls -l ../../
+  distro="xyz"
+cat > $build_dir/server.js <<EOL
+var express = require('express');
+var path = require('path');
+var serveStatic = require('serve-static');
+
+app = express();
+app.use(serveStatic(__dirname + '/dist'));
+
+var port = process.env.PORT || 8080;
+app.listen(port);
+
+console.log('server started '+ port);
+EOL
 
   exit 0
 else
