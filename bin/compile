@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-curl -sL https://deb.nodesource.com/setup_8.x | -E bash -
-apt-get install -y nodejs
-
-node -v
-npm install
+curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
+nodesource_setup.sh
+apt-get install nodejs
+nodejs -v
 
 exit 0
