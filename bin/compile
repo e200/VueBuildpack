@@ -45,7 +45,7 @@ if [ -f $node_tar_path ]; then
 
   $node_bin/node -v
 
-  NODE_PATH=$node_bin/node
+  ln -s $node_bin/node /usr/bin/node
 
   $node_bin/npm install
 
