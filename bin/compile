@@ -56,7 +56,8 @@ if [ -f $node_tar_path ]; then
   $node_bin/npm install
 
   echo "Creating the server..."
-  cp ../server/server.js
+  ls -l ../
+  ls -l ../../
 
   exit 0
 else
