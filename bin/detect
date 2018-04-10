@@ -15,7 +15,7 @@ done
 cat $1/package.json | grep -Pwoqe "\"vue\"\:\s?\".*\"\,?"
 
 if [ $? != 0 ]; then
-  exit 90003
+  exit 9003
 fi
 
 echo "Detected VueJS project"
