@@ -1,47 +1,46 @@
 #!/usr/bin/env bash
 # bin/compile <build-dir> <cache-dir>
 
-BUILD_DIR=$1
-CACHE_DIR=$2
+build_dir=$1
+cache_dir=$2
 
-BIN=$BUILD_DIR/bin
+build_bin=$build_dir/bin
 
-NODE_VERSION=v8.9.4
-NODE_OS=linux
-NODE_CPU=x64
+node_version=v8.9.4
+node_os=linux
+node_cpu=x64
 
 # ex: linux-x64
-NODE_PLATFORM=$NODE_OS-$NODE_CPU
+node_platform=$node_os-$node_cpu
 
 # ex: node-linux-x64
-NODE_DIST=node-$NODE_VERSION-$NODE_PLATFORM
+node_dist=node-$node_version-$node_platform
 
 #ex: node-linux-x64.tar.gz
-NODE_TAR=$NODE_DIST.tar.gz
+node_tar=$node_dist.tar.gz
 
 #ex: /tmp/heroku_cache_dir/node-linux-x64.tar.gz
-NODE_TAR_PATH=$CACHE_DIR/$NODE_TAR
+node_tar_PATH=$cache_dir/$node_tar
 
-NODE_URL=https://s3.amazonaws.com/heroku-nodejs-bins/node/release/$NODE_PLATFORM/$NODE_TAR
+node_url=https://s3.amazonaws.com/heroku-nodejs-bins/node/release/$node_platform/$node_tar
 
-mkdir -p $BIN
+[ ! -d $cache_dir ] && mkdir -p $cache_dir
 
-[ ! -d $CACHE_DIR ] && mkdir -p $CACHE_DIR
+if [ -f $node_tar_PATH ]; then
+  echo "Using cached $node_tar"
+else
+  echo "Downloading node $node_version..."
+  curl -sL $node_url -o $node_tar_PATH
+fi
 
-echo "Downloading node $NODE_VERSION..."
-curl -sL $NODE_URL -o $NODE_TAR_PATH
+if [ -f $node_tar_PATH ]; then
+  echo "Installing node $node_version"
+  tar zxf $node_tar_PATH
+  mkdir -p $build_bin
+  mv $node_dist $build_bin
+  chmod -R +x $build_bin/$node_dist/*
 
-if [ -f $NODE_TAR_PATH ]; then
-  echo "Download complete, extracting downloaded content..."
-  tar zxf $NODE_TAR_PATH
-
-  echo "Installing node $NODE_VERSION"
-  mkdir -p $BIN
-  mv $NODE_DIST $BIN
-  chmod -R +x $BIN/$NODE_DIST/*
-
-
-  $BIN/$NODE_DIST/node -v
+  $build_bin/$node_dist/bin/node -v
 
   exit 0
 fi
