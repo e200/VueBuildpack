@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
-for F in build config src; do
-  if [ ! -d $1/$F ]; then
-    exit 3
-  fi
-done
+if [ ! -d $1/src ]; then
+  exit 3
+fi
 
 for F in package.json index.html; do
   if [ ! -f $1/$F ]; then
