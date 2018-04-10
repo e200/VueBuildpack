@@ -11,6 +11,7 @@ NODE_TAR_PATH=$CACHE_DIR/$NODE_TAR
 
 mkdir -p $CACHE_DIR
 
+
 echo "Downloading node $NODE_VERSION..."
 curl -sL $NODE_URL -o $NODE_TAR_PATH
 
