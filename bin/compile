@@ -20,7 +20,7 @@ if [ -f $NODE_TAR_PATH ]; then
   echo "Installing xz-utils..."
 
   echo "Download complete, extracting downloaded content..."
-  tar zxf $NODE_TAR_PATH
+  tar xzf $NODE_TAR_PATH
 
   echo "Installing node $NODE_VERSION"
   mkdir -p $NODE_BIN
