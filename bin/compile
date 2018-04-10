@@ -7,23 +7,25 @@ CACHE_DIR=$2
 NODE_VERSION=v8.9.0
 NODE_DIST=node-$NODE_VERSION-linux-x64
 NODE_TAR=$NODE_DIST.tar.xz
-NODE_TAR_PATH=$CACHE_DIR/$NODE_TAR
+NODE_TAR_PATH="$CACHE_DIR/node"
 NODE_URL="https://nodejs.org/dist/$NODE_VERSION/$NODE_TAR"
+NODE_BIN=$BUILD_DIR/bin
 
 [ ! -f $CACHE_DIR ] && mkdir -p $CACHE_DIR
+mkdir NODE_TAR_PATH
 
 echo "Downloading node $NODE_VERSION..."
 curl -sL $NODE_URL -o $NODE_TAR_PATH
 
 if [ -f $NODE_TAR_PATH ]; then
   echo "Download complete, extracting downloaded content..."
-  tar -xf $NODE_TAR_PATH
+  tar xf $NODE_TAR_PATH
 
   echo "Installing node $NODE_VERSION"
-  mkdir -p $BUILD_DIR/bin
-  mv $NODE_DIST $BUILD_DIR/bin
+  mkdir -p $NODE_BIN
+  mv $NODE_DIST $NODE_BIN
 
-  $BUILD_DIR/bin/$NODE_DIST/node -v
+  $NODE_BIN/$NODE_DIST/node -v
 
   exit 0
 fi
