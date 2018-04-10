@@ -10,7 +10,7 @@ NODE_TAR=${NODE_DIST}.tar.xz
 echo "Downloading node $NODE_VERSION..."
 curl -sL https://nodejs.org/dist/${NODE_VERSION}/${NODE_TAR} -o ${CACHE_DIR}/${NODE_TAR}
 
-[ !-f ${CACHE_DIR}/${NODE_TAR} ] && echo "Not found"
+[ -f ${CACHE_DIR}/${NODE_TAR} ] && echo "Not found"
 
 echo "Download complete, extracting downloaded content..."
 tar xf ${CACHE_DIR}/${NODE_TAR}
