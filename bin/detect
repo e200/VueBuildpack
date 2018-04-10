@@ -2,20 +2,20 @@
 
 for F in build config src; do
   if [ ! -d $1/$F ]; then
-    exit 90001
+    exit 3
   fi
 done
 
 for F in package.json index.html; do
   if [ ! -f $1/$F ]; then
-    exit 9002
+    exit 2
   fi
 done
 
 cat $1/package.json | grep -Pwoqe "\"vue\"\:\s?\".*\"\,?"
 
 if [ $? != 0 ]; then
-  exit 9003
+  exit 1
 fi
 
 echo "Detected VueJS project"
