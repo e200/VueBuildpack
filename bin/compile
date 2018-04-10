@@ -54,6 +54,10 @@ if [ -f $node_tar_path ]; then
   echo "-----> Resolving npm dependencies..."
   cd $build_dir
   $node_bin/npm install
+  cd -
+
+  echo "Creating the server..."
+  cp ../server/server.js server.js
 
   exit 0
 else
