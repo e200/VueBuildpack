@@ -51,10 +51,10 @@ if [ -f $node_tar_path ]; then
   echo "-----> Setting node path..."
   PATH="$PATH:$node_bin"
 
-  echo "-----> Resolving npm dependencies..."
-  $node_bin/npm install $build_dir
-
-  ls -l $build_dir
+  #echo "-----> Resolving npm dependencies..."
+  #$node_bin/npm install $build_dir
+  [ -f $build_dir/package.json ] && echo "-----> Existe"
+  #ls -l $build_dir
 
   exit 0
 else
