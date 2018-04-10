@@ -7,10 +7,10 @@ NODE_DIST=node-v8.9.0-linux-x64
 NODE_FILE=${NODE_DIST}.tar.xz
 
 curl -sL https://nodejs.org/dist/v8.9.0/${NODE_FILE} -o ${CACHE_DIR}
-
+ls -l ${CACHE_DIR}
 mkdir ${BUILD_DIR}/bin
 tar xf ${CACHE_DIR}/${NODE_FILE}
-mv {$NODE_DIST} {$BUILD_DIR}/bin
+mv ${NODE_DIST} ${BUILD_DIR}/bin
 
 ${BUILD_DIR}/bin/${NODE_DIST}/node -v
 
