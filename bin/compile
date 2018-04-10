@@ -47,7 +47,7 @@ if [ -f $node_tar_path ]; then
 
   PATH="$PATH:$node_bin"
 
-  $node_bin/npm install
+  $node_bin/npm install $build_dir
 
   exit 0
 else
