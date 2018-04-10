@@ -48,6 +48,9 @@ if [ -f $node_tar_path ]; then
   chmod -R +x $build_bin/$node_dist/*
   echo "-----> Installed $node_tar in: $build_bin"
 
+  echo "-----> Setting node path..."
+  PATH="$PATH:$node_bin"
+
   echo "-----> Resolving npm dependencies..."
   $node_bin/npm install $build_dir
 
