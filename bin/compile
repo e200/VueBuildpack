@@ -18,8 +18,7 @@ curl -sL $NODE_URL -o $NODE_TAR_PATH
 
 if [ -f $NODE_TAR_PATH ]; then
   echo "Installing xz-utils..."
-  su root
-  dpkg -i http://http.us.debian.org/debian/pool/main/x/xz-utils/xz-utils_5.1.1alpha+20120614-2+b3_amd64.deb
+  apt-get install xz-utils
 
   echo "Download complete, extracting downloaded content..."
   tar xf $NODE_TAR_PATH
