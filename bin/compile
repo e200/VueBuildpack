@@ -43,9 +43,9 @@ if [ -f $node_tar_path ]; then
   mv $node_dist $build_bin
   chmod -R +x $build_bin/$node_dist/*
 
-  node_bin/node -v
+  $node_bin/node -v
 
-  node_bin/npm install
+  $node_bin/npm install
 
   exit 0
 else
