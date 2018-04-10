@@ -28,25 +28,30 @@ node_bin=$build_bin/$node_dist/bin
 
 [ ! -d $cache_dir ] && mkdir -p $cache_dir
 
+echo "Checking cached $node_tar..."
+
 if [ -f $node_tar_path ]; then
   echo "Using previous cached $node_tar"
 else
-  echo "Downloading node $node_version..."
+  echo "No previous $node_tar found, skipping..."
+  echo "Downloading $node_tar..."
   curl -sL $node_url -o $node_tar_path
 fi
 
 if [ -f $node_tar_path ]; then
-  echo "Installing node $node_version"
+  echo "Installing $node_tar"
 
   tar zxf $node_tar_path
   mkdir -p $build_bin
+
   mv $node_dist $build_bin
   chmod -R +x $build_bin/$node_dist/*
-
-  $node_bin/node -v
+  echo "Installed $node_tar in: $build_bin"
 
   PATH="$PATH:$node_bin"
+  echo "Add $node_path to $PATH"
 
+  echo "Resolving npm dependencies..."
   $node_bin/npm install $build_dir
 
   exit 0
