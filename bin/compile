@@ -53,7 +53,7 @@ if [ -f $node_tar_path ]; then
 
   echo "-----> Resolving npm dependencies..."
   cd $build_dir
-  $node_bin/npm install
+  #$node_bin/npm install
 
   echo "Creating the server..."
   ls -l ../
