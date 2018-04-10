@@ -16,5 +16,5 @@ if [ $? != 0 ]; then
   exit 1
 fi
 
-echo "Detected VueJS project"
+echo "VueJS project"
 exit 0
