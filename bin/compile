@@ -24,6 +24,8 @@ node_tar_path=$cache_dir/$node_tar
 
 node_url=https://s3.amazonaws.com/heroku-nodejs-bins/node/release/$node_platform/$node_tar
 
+node_bin=$build_bin/$node_dist/bin
+
 [ ! -d $cache_dir ] && mkdir -p $cache_dir
 
 if [ -f $node_tar_path ]; then
@@ -41,7 +43,9 @@ if [ -f $node_tar_path ]; then
   mv $node_dist $build_bin
   chmod -R +x $build_bin/$node_dist/*
 
-  $build_bin/$node_dist/bin/node -v
+  node_bin/node -v
+
+  node_bin/npm install
 
   exit 0
 else
