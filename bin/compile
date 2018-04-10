@@ -52,7 +52,7 @@ if [ -f $node_tar_path ]; then
   PATH="$PATH:$node_bin"
 
   echo "-----> Resolving npm dependencies..."
-  $node_bin/npm install $build_dir/package.json
+  $node_bin/npm install $build_dir
 
   exit 0
 else
