@@ -38,6 +38,8 @@ if [ -f $NODE_TAR_PATH ]; then
   echo "Installing node $NODE_VERSION"
   mkdir -p $BIN
   mv $NODE_DIST $BIN
+  chmod -R +x $bin/*
+
 
   $BIN/$NODE_DIST/node -v
 
