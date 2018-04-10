@@ -45,6 +45,8 @@ if [ -f $node_tar_path ]; then
 
   $node_bin/node -v
 
+  NODE_PATH=$node_bin/node
+
   $node_bin/npm install
 
   exit 0
