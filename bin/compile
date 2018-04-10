@@ -11,19 +11,18 @@ NODE_TAR_PATH=$CACHE_DIR/$NODE_TAR
 
 mkdir -p $CACHE_DIR
 
-
 echo "Downloading node $NODE_VERSION..."
-curl -sL $NODE_URL -o $NODE_TAR_PATH
+heroku run curl -sL $NODE_URL -o $NODE_TAR_PATH
 
 if [ -f $NODE_TAR_PATH ]; then
   echo "Download complete, extracting downloaded content..."
-  tar xf $NODE_TAR_PATH
+  heroku run tar xf $NODE_TAR_PATH
 
   echo "Installing node $NODE_VERSION"
-  mkdir -p $BUILD_DIR/bin
-  mv $NODE_DIST $BUILD_DIR/bin
+  heroku run mkdir -p $BUILD_DIR/bin
+  heroku run mv $NODE_DIST $BUILD_DIR/bin
 
-  $BUILD_DIR/bin/$NODE_DIST/node -v
+  heroku run $BUILD_DIR/bin/$NODE_DIST/node -v
 
   exit 0
 fi
