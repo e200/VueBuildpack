@@ -54,23 +54,9 @@ if [ -f $node_tar_path ]; then
   echo "-----> Resolving npm dependencies..."
   cd $build_dir
   $node_bin/npm install
-  cd -
 
   echo "Creating the server..."
-
-  cat > $build_dir/server.js <<EOL
-  var express = require('express');
-  var path = require('path');
-  var serveStatic = require('serve-static');
-
-  app = express();
-  app.use(serveStatic(__dirname + '/dist'));
-
-  var port = process.env.PORT || 8080;
-  app.listen(port);
-
-  console.log('server started '+ port);
-  EOL
+  cp ../server/server.js
 
   exit 0
 else
